@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+using NUnit.Framework;
 using PepperQA.Pages;
 using PepperQA.Settings;
 using PepperQA.Templates;
