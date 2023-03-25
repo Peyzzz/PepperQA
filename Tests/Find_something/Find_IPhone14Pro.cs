@@ -2,6 +2,8 @@
 using PepperQA.Pages;
 using PepperQA.Settings;
 using PepperQA.Templates;
+using System.Text.RegularExpressions;
+using NUnit.Framework;
 
 namespace PepperQA.Tests.Find_something
 {
@@ -19,14 +21,23 @@ namespace PepperQA.Tests.Find_something
 
             await page.GetByRole(AriaRole.Button, new() { Name = "Kontynuuj bez akceptacji" }).ClickAsync();
 
-            await page.GetByRole(AriaRole.Link, new() { Name = "Nowe" }).ClickAsync();
+            await page.GetByRole(AriaRole.Link, new() { Name = "Dla Ciebie" }).ClickAsync();
 
             int i = 0;
 
-            while (i < 3)
+            while (i < 1)
             {
-                await page.GotoAsync($"https://www.pepper.pl/nowe?page={i}");
+                await page.GotoAsync($"https://www.pepper.pl/dlaciebie?page={i}");
+
+                var locator = page.GetByTitle(new Regex("Etui"));
+                await Assertions.Expect(locator).ToContainTextAsync(new Regex("Etui Spigen"));
+
+                await locator.ClickAsync();
+
+                i++;
             }
+
+            
         }
     }
 }
