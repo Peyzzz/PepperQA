@@ -8,7 +8,7 @@ namespace PepperQA.Pages
 
         public HomePage(IPage page) => this._page = page;
 
-        public string Title => ".product-title";
+        public string Title => ".thread-link";
 
         public async Task SelectDefineProduct(string name)
         {
