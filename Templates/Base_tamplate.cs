@@ -13,7 +13,7 @@ namespace PepperQA.Templates
         public async Task Setup()
         {
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
-            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions() { Headless = false, Channel = "chrome" } );
+            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions() { Headless = false, Channel = "chrome" });
             Context = await Browser.NewContextAsync();
 
             await Context.Tracing.StartAsync(new TracingStartOptions
