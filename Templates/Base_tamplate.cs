@@ -1,5 +1,7 @@
 ﻿using Microsoft.Playwright;
 using NUnit.Framework;
+using PepperQA.Pages;
+using PepperQA.Settings;
 
 namespace PepperQA.Templates
 {
@@ -8,6 +10,7 @@ namespace PepperQA.Templates
         protected IPlaywright Playwright;
         protected IBrowser Browser;
         protected IBrowserContext Context;
+        protected IPage Page;
 
         [SetUp]
         public async Task Setup()
@@ -22,6 +25,11 @@ namespace PepperQA.Templates
                 Snapshots = true,
                 Sources = true,
             });
+
+            Page = await Context.NewPageAsync();
+            await Page.GotoAsync(TestSettings.EnvUrl);
+            HomePage homePage = new HomePage(Page);
+            await homePage.AcceptCookies();
         }
 
         [TearDown]

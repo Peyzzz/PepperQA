@@ -2,6 +2,6 @@
 {
     public class TestSettings
     {
-        public static string EnvUrl { get; set; } = "https://www.pepper.pl/dlaciebie";
+        public static string EnvUrl { get; } = "https://www.pepper.pl/dlaciebie";
     }
 }

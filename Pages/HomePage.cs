@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+using PepperQA.Templates;
 
 namespace PepperQA.Pages
 {

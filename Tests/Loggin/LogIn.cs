@@ -2,6 +2,7 @@
 using PepperQA.Pages;
 using PepperQA.Settings;
 using PepperQA.Templates;
+using System.Text.RegularExpressions;
 
 namespace PepperQA.Tests.Loggin
 {
@@ -10,17 +11,24 @@ namespace PepperQA.Tests.Loggin
     {
         private string username = "Temp1";
 
-        [TestCase("Log to existing account")]
-        public async Task TryLogIn(string name)
+        [TestCase("Log in to an existing account.")]
+        public async Task LogInToExistingAccount(string name)
         {
-            var page = await Context.NewPageAsync();
-            await page.GotoAsync(TestSettings.EnvUrl);
-            HomePage homePage = new HomePage(page);
-            await homePage.AcceptCookies();
+            Assert.That(Page.Url.ToString(), Is.EqualTo(TestSettings.EnvUrl));
+            HomePage homePage = new HomePage(Page);
             await homePage.ClickSignUp();
             await homePage.SignUp(username, "temptemp1");
             var isExist = await homePage.AvatarExist(username);
             Assert.IsTrue(isExist);
+        }
+
+        [TestCase("Log in to a non-existent account.")]
+        public async Task LogInToNonExistentAccount(string name)
+        {
+            HomePage homePage = new HomePage(Page);
+            await homePage.ClickSignUp();
+            await homePage.SignUp("shouldnotexist", "123123456");
+            Assert.IsTrue(await Page.GetByText("Nieprawidłowe hasło Wygląda na to że wpisałeś złe hasło. Spróbuj ponownie.").IsVisibleAsync());
         }
     }
 }
