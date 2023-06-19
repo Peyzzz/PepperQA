@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Przemysław\\source\\repos\\PepperQA\\PepperQA.csproj": {}
+    "C:\\Users\\pcichocx\\source\\repos\\PepperQA\\PepperQA.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Przemysław\\source\\repos\\PepperQA\\PepperQA.csproj": {
+    "C:\\Users\\pcichocx\\source\\repos\\PepperQA\\PepperQA.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Przemysław\\source\\repos\\PepperQA\\PepperQA.csproj",
+        "projectUniqueName": "C:\\Users\\pcichocx\\source\\repos\\PepperQA\\PepperQA.csproj",
         "projectName": "PepperQA",
-        "projectPath": "C:\\Users\\Przemysław\\source\\repos\\PepperQA\\PepperQA.csproj",
-        "packagesPath": "C:\\Users\\Przemysław\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Przemysław\\source\\repos\\PepperQA\\obj\\",
+        "projectPath": "C:\\Users\\pcichocx\\source\\repos\\PepperQA\\PepperQA.csproj",
+        "packagesPath": "C:\\Users\\pcichocx\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\pcichocx\\source\\repos\\PepperQA\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Przemysław\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pcichocx\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -42,27 +42,31 @@
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
-              "version": "[17.3.2, )"
+              "version": "[17.6.2, )"
             },
             "Microsoft.Playwright.NUnit": {
               "target": "Package",
-              "version": "[1.31.1, )"
+              "version": "[1.35.0, )"
             },
             "NUnit": {
               "target": "Package",
               "version": "[3.13.3, )"
             },
             "NUnit.Analyzers": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.3.0, )"
+              "version": "[3.6.1, )"
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[4.2.1, )"
+              "version": "[4.5.0, )"
             },
             "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.2, )"
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -81,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
