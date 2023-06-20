@@ -14,14 +14,14 @@ namespace PepperQA.Pages
         private readonly ILocator _btnContrinueWithoutAccept;
         private readonly ILocator _btnAcceptCookies;
 
-        public HomePage(IPage page)
+        public HomePage(IPage page, string username)
         {
             _page = page;
             _ussername = _page.GetByPlaceholder("Jan_Kowalski");
             _password = _page.GetByPlaceholder("**************");
             _btnsignup = _page.GetByRole(AriaRole.Button, new() { Name = "Zarejestruj się / Zaloguj Się" });
             _btnlogin = _page.GetByRole(AriaRole.Button, new() { Name = "Zaloguj się", Exact = true });
-            _btnAvatar = _page.GetByRole(AriaRole.Button, new() { Name = "Awatar użytkownika Temp1" });
+            _btnAvatar = _page.GetByRole(AriaRole.Button, new() { Name = $"Awatar użytkownika {username}" });
             _btnAcceptCookies = _page.GetByRole(AriaRole.Dialog).Filter(new() { HasText = "Cześć! Jesteśmy ciasteczkami! Kontynuuj bez akceptacji Do działania oraz analizy" }).GetByRole(AriaRole.Button, new() { Name = "Akceptuj wszystkie" });
             _btnContrinueWithoutAccept = _page.GetByRole(AriaRole.Dialog).Filter(new() { HasText = "Zaakceptuj wszystkie pliki cookie, aby zobaczyć spersonalizowane okazje Do dział" }).GetByRole(AriaRole.Button, new() { Name = "Akceptuj wszystkie" });
         }

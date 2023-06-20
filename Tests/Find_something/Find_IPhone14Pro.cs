@@ -9,7 +9,7 @@ using NUnit.Framework;
 namespace PepperQA.Tests.Find_something
 {
     [TestFixture]
-    public class Find_IPhone14Pro : Base_tamplate
+    public class Find_IPhone14Pro : Base_template
     {
         [TestCase ("Find IPhone 14 pro")]
         public async Task GotoPepper_Find_IPhone14Pro(string name)
@@ -17,7 +17,7 @@ namespace PepperQA.Tests.Find_something
             Playwright.Selectors.SetTestIdAttribute("data-t");
 
             var page = await Context.NewPageAsync();
-            var homePage = new HomePage(page);
+            var homePage = new HomePage(page, Username);
             await page.GotoAsync(TestSettings.EnvUrl);
             await homePage.SelectDefineProduct("Rower");
 
