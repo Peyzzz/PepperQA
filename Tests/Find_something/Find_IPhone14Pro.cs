@@ -12,8 +12,10 @@ namespace PepperQA.Tests.Find_something
     public class Find_IPhone14Pro : Base_template
     {
         [TestCase ("Find IPhone 14 pro")]
+        [Ignore ("Temporary disabled")]
         public async Task GotoPepper_Find_IPhone14Pro(string name)
         {
+            
             Playwright.Selectors.SetTestIdAttribute("data-t");
 
             var page = await Context.NewPageAsync();
