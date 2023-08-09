@@ -52,7 +52,7 @@ jobs:
       matrix:
         configuration: [Release]
 
-    runs-on: ubuntu-latest  # For a list of available runner types, refer to
+    runs-on: windows-latest  # For a list of available runner types, refer to
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     env:
@@ -76,10 +76,11 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.2
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
+    - name: Execute tests
       run: dotnet test
       
   test:
+    name: PlaywrightTests
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
