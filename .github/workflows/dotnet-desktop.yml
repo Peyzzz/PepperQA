@@ -91,6 +91,6 @@ jobs:
         dotnet-version: 6.0.x
     - run: dotnet build
     - name: Ensure browsers are installed
-      run: pwsh bin/Debug/net6.0/playwright.ps1 install --with-deps
-    - name: Run your tests
-      run: dotnet test
+      run: pwsh bin/Debug/net7.0/playwright.ps1 install-deps
+    - name: run tests with settings
+      run: dotnet test --settings:chromium.runsettings
